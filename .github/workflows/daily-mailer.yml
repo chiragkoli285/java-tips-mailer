@@ -2,8 +2,8 @@ name: Daily Java Tips Mailer
 
 on:
   schedule:
-    - cron: '30 2 * * *'  # Runs every day at 8:00 AM IST (2:30 AM UTC)
-  workflow_dispatch:        # Allows manual trigger from GitHub UI
+    - cron: '30 2 * * *'
+  workflow_dispatch:
 
 jobs:
   send-tips:
@@ -19,8 +19,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build JAR
-        run: ./gradlew clean build -q
+      - name: Grant execute permission to gradlew
+        run: chmod +x gradlew
+
+      - name: Build JAR with Gradle
+        run: ./gradlew shadowJar
 
       - name: Run Java Tips Mailer
         env:
@@ -28,4 +31,4 @@ jobs:
           GMAIL_USER:          ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD:  ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENT_EMAIL:     ${{ secrets.RECIPIENT_EMAIL }}
-        run: java -jar target/java-tips-mailer-1.0.0.jar
+        run: java -jar build/libs/java-tips-mailer-1.0.0.jar
