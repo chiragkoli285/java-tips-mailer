@@ -37,11 +37,20 @@ jar {
     }
 }
 
-tasks.named('shadowJar') {
-    archiveBaseName = 'java-tips-mailer'
-    archiveVersion = '1.0.0'
-    archiveClassifier = ''
+tasks.withType(com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    // Merge service files safely
     mergeServiceFiles()
+
+    // Exclude problematic META-INF signature files
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+
+    archiveBaseName.set("java-tips-mailer")
+    archiveVersion.set("1.0.0")
+    archiveClassifier.set("")
 }
 
 tasks.named('test') {
