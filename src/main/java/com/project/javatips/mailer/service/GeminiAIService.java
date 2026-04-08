@@ -7,12 +7,14 @@ import okhttp3.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class GeminiAIService {
 
-    private static final String GEMINI_URL =
-            "https://generativelanguage.googleapis.com/v1beta/models/" +
-                    "gemini-1.5-flash:generateContent";
+//    private static final String GEMINI_URL =
+//            "https://generativelanguage.googleapis.com/v1beta/models/" +
+//                    "gemini-1.5-flash:generateContent";
+    private static final String GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent";
 
     private final AppConfig config;
     private final OkHttpClient httpClient;
@@ -20,7 +22,11 @@ public class GeminiAIService {
 
     public GeminiAIService(AppConfig config) {
         this.config = config;
-        this.httpClient = new OkHttpClient();
+        this.httpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(120, TimeUnit.SECONDS)
+                .readTimeout(120, TimeUnit.SECONDS)
+                .writeTimeout(120, TimeUnit.SECONDS)
+                .build();
         this.gson = new Gson();
     }
 

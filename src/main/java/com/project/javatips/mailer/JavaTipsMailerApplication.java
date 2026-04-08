@@ -5,9 +5,11 @@ import com.project.javatips.mailer.model.JavaTip;
 import com.project.javatips.mailer.service.EmailFormatterService;
 import com.project.javatips.mailer.service.EmailService;
 import com.project.javatips.mailer.service.GeminiAIService;
+import okhttp3.OkHttpClient;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 public class JavaTipsMailerApplication {
