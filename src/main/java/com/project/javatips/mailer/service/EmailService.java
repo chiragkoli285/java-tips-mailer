@@ -1,6 +1,7 @@
 package com.project.javatips.mailer.service;
 
-import com.javatipper.config.AppConfig;
+import com.project.javatips.mailer.config.AppConfig;
+
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.Properties;

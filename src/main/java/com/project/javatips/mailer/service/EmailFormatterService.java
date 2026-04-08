@@ -1,6 +1,6 @@
 package com.project.javatips.mailer.service;
 
-import com.javatipper.model.JavaTip;
+import com.project.javatips.mailer.model.JavaTip;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;

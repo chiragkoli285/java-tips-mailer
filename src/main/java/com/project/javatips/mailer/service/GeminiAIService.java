@@ -1,8 +1,8 @@
 package com.project.javatips.mailer.service;
 
 import com.google.gson.*;
-import com.javatipper.config.AppConfig;
-import com.javatipper.model.JavaTip;
+import com.project.javatips.mailer.config.AppConfig;
+import com.project.javatips.mailer.model.JavaTip;
 import okhttp3.*;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class GeminiAIService {
             with 3+ years of experience. Focus on practical, production-relevant topics.
             
             Topics can include: Java internals, Spring Boot, JVM tuning, design patterns,
-            concurrency, performance optimization, Java 17+ features, best practices,
+            concurrency, performance optimization, Java 17+ features, best practices, Kafka,
             microservices patterns, or commonly asked interview topics.
             
             Respond ONLY with a valid JSON array. No extra text, no markdown, no backticks.
@@ -44,7 +44,7 @@ public class GeminiAIService {
             [
               {
                 "topicTitle": "Topic name here",
-                "briefExplanation": "2-3 sentence explanation",
+                "briefExplanation": "4-5 sentence explanation",
                 "codeExample": "short Java code example as a single string with \\n for newlines",
                 "proTip": "one practical pro tip"
               }

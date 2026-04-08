@@ -1,7 +1,13 @@
 package com.project.javatips.mailer;
 
-import org.springframework.boot.SpringApplication;
+import com.project.javatips.mailer.config.AppConfig;
+import com.project.javatips.mailer.model.JavaTip;
+import com.project.javatips.mailer.service.EmailFormatterService;
+import com.project.javatips.mailer.service.EmailService;
+import com.project.javatips.mailer.service.GeminiAIService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 
 @SpringBootApplication
 public class JavaTipsMailerApplication {
