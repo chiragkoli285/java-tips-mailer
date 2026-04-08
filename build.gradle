@@ -36,10 +36,10 @@ jar {
     }
 }
 
-shadowJar {
-    archiveBaseName.set('java-tips-mailer')
-    archiveVersion.set('1.0.0')
-    archiveClassifier.set('')
+tasks.named('shadowJar') {
+    archiveBaseName = 'java-tips-mailer'
+    archiveVersion = '1.0.0'
+    archiveClassifier = ''
     mergeServiceFiles()
 }
 
