@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build JAR
-        run: mvn clean package -q
+        run: ./gradlew clean build -q
 
       - name: Run Java Tips Mailer
         env:
