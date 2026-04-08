@@ -37,7 +37,7 @@ jar {
 }
 
 tasks.named('shadowJar') {
-    archiveBaseName = 'java-tips-mailer'
+    archiveBaseName = 'com.project.javatips'
     archiveVersion = '1.0.0'
     archiveClassifier = ''
     mergeServiceFiles()
