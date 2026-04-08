@@ -30,6 +30,19 @@ dependencies {
 
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.project.javatips.mailer.JavaTipsMailerApplication'
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('java-tips-mailer')
+    archiveVersion.set('1.0.0')
+    archiveClassifier.set('')
+    mergeServiceFiles()
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
